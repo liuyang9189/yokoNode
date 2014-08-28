@@ -57,7 +57,6 @@ exports.loginSuccessful = function (req, res) {
                     res.redirect('/');
                 }
                 else{
-                    console.log(results[0]);
                     req.session.user = results[0];
                     res.redirect('/index.do');
                 }
@@ -70,31 +69,49 @@ exports.loginSuccessful = function (req, res) {
 
 //登陆成功-首页
 exports.index = function(req, res){
-
-    connection.query(
-        'SELECT * FROM content ORDER BY createTime desc limit 0,10' ,
-        function selectCb(err, results, fields) {
-            if (err) {
-                throw err;
-            }
-            else{
-                for(var i=0;i<results.length;i++){
-                    var min_content = results[i].content.substr(0,120);
-                    results[i].min_content = min_content+"...";
+    if(req.param("starting","") != ""){
+        var starting = req.param("starting","");
+        var end = req.param("end","");
+        connection.query(
+                'SELECT * FROM content ORDER BY createTime desc limit '+starting+','+end ,
+            function selectCb(err, results, fields) {
+                if (err) {
+                    throw err;
                 }
-                res.render('loginSuccessful', {
-                    title: "首页",
-                    user: req.session.user,
-                    message: req.flash('message'),
-                    results:results
-                });
-
+                else{
+                    for(var i=0;i<results.length;i++){
+                        var min_content = results[i].content.substr(0,120);
+                        results[i].min_content = min_content+"...";
+                    }
+                    res.jsonp(results);//返回JSON
+                }
             }
-        }
-    );
+        );
+    }else{
+        var starting = 0;
+        var end = 10;
+        connection.query(
+                'SELECT * FROM content ORDER BY createTime desc limit '+starting+','+end ,
+            function selectCb(err, results, fields) {
+                if (err) {
+                    throw err;
+                }
+                else{
+                    for(var i=0;i<results.length;i++){
+                        var min_content = results[i].content.substr(0,120);
+                        results[i].min_content = min_content+"...";
+                    }
+                    res.render('loginSuccessful', {
+                        title: "首页",
+                        user: req.session.user,
+                        message: req.flash('message'),
+                        results:results
+                    });
 
-
-
+                }
+            }
+        );
+    }
 };
 
 //注册页

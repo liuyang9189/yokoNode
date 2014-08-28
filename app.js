@@ -52,6 +52,7 @@ app.get('/admin/release.do',release.release);//发布页
 app.get('/admin/fb.do',release.fb);//发布接口
 app.get('/admin/:id.do',articles.articles);//文章页
 
+
 //config 渲染到模板
 app.locals({
   config:config
