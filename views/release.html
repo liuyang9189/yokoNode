@@ -1,0 +1,32 @@
+<%= include common/header.html %>
+<%= include common/nav.html %>
+
+<div class="container" style="margin-top:80px;">
+<!--<%=user.username%>登录成功-->
+    <div class="conntainer-left">
+        <div class="release-con">
+            <h2>发布</h2>
+            <form action="/admin/fb.do" method="get">
+                <div class="form-group">
+                    <label>标题：</label>
+                    <input type="text" class="form-control" placeholder="请输入标题···" name="title"/>
+                </div>
+                <div class="form-group">
+                    <label>问题说明：</label>
+                    <textarea class="form-control" rows="6" name="content"></textarea>
+                    <input type="submit" class="btn btn-primary" value="发布"/>
+                    <a href="/index.do">取消</a>
+                    <label><%= message%></label>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+<!--<button type="button" data-toggle="modal" data-target="#myModal" class="myModal">弹出层</button>-->
+</div>
+
+<%= include common/footer.html %>
+<script>
+
+</script>

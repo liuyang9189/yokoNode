@@ -1,0 +1,17 @@
+/* CSS Document By yokoafter90@gmail.com */
+body{ font-family: 'Helvetica Neue',Helvetica,Arial,Sans-serif; margin: 0; padding: 0; }
+h1,h2,h3,h4,h5,h6,form,img,ul,ol,li,dl,dt,dd,table,div,span,p{ padding: 0; margin: 0; border: 0; }
+input{ padding: 0; margin:0; }
+li{ list-style-type: none; list-style:none; }
+
+.conntainer-left h3 { font-family: 'Helvetica Neue'; color: #666; font-size: 14px; font-weight: 700; padding-bottom: 10px; border-bottom: 1px #ccc solid; text-indent: 20px; }
+.conntainer-left { width: 632px; float: left; font-family: 'Helvetica Neue',Helvetica,Arial,Sans-serif; font-size: 14px; }
+.conntainer-left ul { margin: 20px 0; }
+.conntainer-left ul li { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px #ccc solid; float: left; }
+.conntainer-left ul h4 { font-family: 'Helvetica Neue'; color: #259; font-size: 14px; font-weight: 700; }
+.conntainer-left ul h5 { font-family: 'Helvetica Neue'; color: #222; font-size: 13px; font-weight: 700; padding: 8px 0; }
+.conntainer-left ul li p { line-height: 1.7; font-size: 13px; color: #222; }
+.content-big { display: none; float: left; }
+.content-min a { padding: 0 5px; }
+.content-big a { float: right; font-size: 13px; line-height: 1.7;}
+.content-big p { float: left; width: 612px; }
