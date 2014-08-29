@@ -1,11 +1,9 @@
 <%= include common/header.html %>
 <%= include common/nav.html %>
-
 <div class="container" style="margin-top:80px;width:960px;">
-<!--<%=user.username%>登录成功-->
     <div class="conntainer-left">
         <h3>最新动态</h3>
-        <ul>
+        <ul class="brief">
             <% results.forEach(function(results){ %>
             <li>
                 <h4><a href="/admin/<%= results.id %>.do"><%= results.title %></a></h4>
@@ -13,7 +11,7 @@
                 <p class="content-min"><%= results.min_content %><a href="javascript:;">显示全部</a></p>
                 <div class="content-big">
                     <a href="javascript:;">收起</a>
-                    <p><%= results.content %></p>
+                    <p><%- results.content %></p>
                 </div>
             </li>
             <% }) %>
@@ -21,12 +19,10 @@
         </ul>
         <a href="javascript:;" class="btn btn-default btn-more" id="load-more">更多</a>
     </div>
-
 <!--<button type="button" data-toggle="modal" data-target="#myModal" class="myModal">弹出层</button>-->
 </div>
 
-
-
+<!--弹出层-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -44,51 +40,11 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div>
-<script type="text/javascript">
-
-//弹出层
-$(".myModal").click(function(){
-	$('#myModal').modal('toggle')
-})
-
-$(function(){
-    //点击‘显示全部’
-    $(".content-min a").click(function(){
-        $(this).parent().hide().siblings(".content-big").show();
-    })
-    //点击‘收起’
-    $(".content-big a").click(function(){
-        $(this).parent().hide().siblings(".content-min").show();
-    })
-
-    //点击‘更多’
-    $("#load-more").click(function(){
-        var liLength = $(".conntainer-left li").length;
-        var end = liLength+10;
-        $.ajax({
-            url:"/index.do?starting="+liLength+"&end="+end,
-            cache: false,
-            dataType:"json",
-            error:function(){
-                console.log("index.do ajax error")
-            },
-            success:function(data){
-                var oHtml = "";
-                for(var i=0;i<data.length;i++){
-                    oHtml += '<li>'
-                          + '<h4><a href="/admin/'+data[i].id+'.do">'+data[0].title+'</a></h4>'
-                          + '<h5>'+data[0].createName+'</h5>'
-                          + '<p class="content-min">'+data[0].min_content+'<a href="javascript:;">显示全部</a></p>'
-                          + '<div class="content-big">'
-                          + '<a href="javascript:;">收起</a>'
-                          + '<p>'+data[0].content+'</p>'
-                          + '</div>'
-                          + '</li>'
-                }
-                $(".conntainer-left ul").append(oHtml);
-            }
-        });
-    })
-})
-</script>
 <%= include common/footer.html %>
+
+<script type="text/javascript">
+    //弹出层
+    $(".myModal").click(function(){
+        $('#myModal').modal('toggle')
+    })
+</script>

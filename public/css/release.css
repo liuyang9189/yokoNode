@@ -6,7 +6,7 @@
 .release-con .form-control { resize:none; }
 .release-con .form-group { width: 500px; margin: 0 auto;}
 .release-con .form-group .btn { float: right; margin-top: 10px; }
-.release-con .form-group a { float: right; margin-top: 10px; line-height: 34px; padding: 0 13px; margin-right: 10px; }
+.release-con .form-group .release-cancel { float: right; margin-top: 10px; line-height: 34px; padding: 0 13px; margin-right: 10px; }
 
 
 
