@@ -1,17 +1,4 @@
 $(function(){
-
-    /*
-    *release.html 发布页
-    */
-    //富文本编辑器
-    CKEDITOR.replace( 'editor', {
-        toolbar: [
-            [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'Image' ],
-            [ 'FontSize', 'TextColor', 'BGColor' ]
-        ]
-    });
-
-
     /*
     *loginSuccessful.html 登陆成功页
     */

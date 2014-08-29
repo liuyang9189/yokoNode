@@ -24,6 +24,15 @@
 <%= include common/footer.html %>
 
 <script>
-
+    /*
+     *release.html 发布页
+     */
+    //富文本编辑器
+    CKEDITOR.replace( 'editor', {
+        toolbar: [
+            [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'Image' ],
+            [ 'FontSize', 'TextColor', 'BGColor' ]
+        ]
+    });
 
 </script>
